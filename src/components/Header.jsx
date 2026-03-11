@@ -4,7 +4,7 @@ import { useMovieStore } from '../store/movieStore';
 import { movieAPI } from '../services/api';
 import CategoriesDropdown from './CategoriesDropdown';
 
-export default function Header() {
+export default function Header({ onOpenCategoriesModal }) {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
   const setSearchResults = useMovieStore((state) => state.setSearchResults);
@@ -62,7 +62,7 @@ export default function Header() {
             </form>
 
             {/* Categories Dropdown */}
-            <CategoriesDropdown />
+            <CategoriesDropdown onOpenModal={onOpenCategoriesModal} />
           </div>
         </div>
       </div>
