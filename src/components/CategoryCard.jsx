@@ -10,7 +10,7 @@ export default function CategoryCard({ genre }) {
   return (
     <button
       onClick={handleClick}
-      className="relative overflow-hidden rounded-lg bg-gradient-to-br from-red-600 to-red-800 p-4 sm:p-5 md:p-6 text-white font-semibold text-sm sm:text-base md:text-lg hover:shadow-2xl hover:shadow-red-500/50 hover:scale-105 transition-all duration-300 min-h-24 sm:min-h-28 md:min-h-32 flex items-center justify-center text-center w-full"
+      className="relative overflow-hidden rounded-lg bg-gradient-to-br from-red-600 to-red-800 p-2 sm:p-4 md:p-5 text-white font-semibold text-xs sm:text-sm md:text-base hover:shadow-2xl hover:shadow-red-500/50 hover:scale-105 transition-all duration-300 min-h-16 sm:min-h-20 md:min-h-28 flex items-center justify-center text-center w-full"
     >
       <span className="relative z-10 line-clamp-3">{genre.name}</span>
       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300" />

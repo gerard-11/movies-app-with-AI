@@ -8,7 +8,7 @@ export default function Footer() {
               CineApp © {new Date().getFullYear()}
             </p>
             <p className="text-neutral-500 text-xs sm:text-sm">
-              Powered by <span className="text-red-500">TMDB API</span>
+              Powered by <span className="text-red-500">Ger-Dev-Studio-@2026</span>
             </p>
           </div>
           <div className="flex gap-3 sm:gap-4 md:gap-6">

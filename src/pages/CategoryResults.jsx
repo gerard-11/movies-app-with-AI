@@ -33,7 +33,7 @@ export default function CategoryResults() {
   }, [id, setMovies, setLoading]);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black px-4 sm:px-4 md:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-12">
         {/* Header */}
         <div className="mb-8 sm:mb-12">

@@ -34,7 +34,7 @@ export default function Home() {
   }, [setTrendingMovies, setGenres, setLoading]);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black px-4 sm:px-4 md:px-6 lg:px-8">
       {/* Hero Section */}
       <section className="relative h-64 sm:h-80 md:h-96 bg-gradient-brand overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center px-4">
@@ -86,17 +86,17 @@ export default function Home() {
         </div>
 
         {genres.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
-            {genres.map((genre) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
+            {genres.slice(0, 8).map((genre) => (
               <CategoryCard key={genre.id} genre={genre} />
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
-            {[...Array(6)].map((_, i) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
+            {[...Array(8)].map((_, i) => (
               <div
                 key={i}
-                className="h-24 sm:h-28 md:h-32 bg-neutral-800 rounded-lg animate-pulse"
+                className="h-16 sm:h-20 md:h-24 bg-neutral-800 rounded-lg animate-pulse"
               />
             ))}
           </div>

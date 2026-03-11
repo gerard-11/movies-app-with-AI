@@ -72,7 +72,7 @@ export default function MovieDetail() {
     : null;
 
   return (
-    <div className="min-h-screen bg-black ">
+    <div className="min-h-screen bg-black px-4 sm:px-4 md:px-6 lg:px-8">
       {/* Backdrop - Solo en md+ (no en móvil) */}
       {backdropUrl && (
         <div className="hidden md:block relative h-80 lg:h-96 overflow-hidden">
