@@ -1,17 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useMovieStore } from '../store/movieStore';
 import { movieAPI } from '../services/api';
 import MovieCard from '../components/MovieCard';
-import CategoryCard from '../components/CategoryCard';
-import CategoryModal from '../components/CategoryModal';
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const {
     trendingMovies,
-    genres,
     setTrendingMovies,
-    setGenres,
     setLoading,
   } = useMovieStore();
 
@@ -19,12 +14,8 @@ export default function Home() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const [trending, genresList] = await Promise.all([
-          movieAPI.getTrending(),
-          movieAPI.getGenres(),
-        ]);
+        const trending = await movieAPI.getTrending();
         setTrendingMovies(trending);
-        setGenres(genresList);
       } catch (error) {
         console.error('Error fetching home data:', error);
       } finally {
@@ -33,7 +24,7 @@ export default function Home() {
     };
 
     fetchData();
-  }, [setTrendingMovies, setGenres, setLoading]);
+  }, [setTrendingMovies, setLoading]);
 
   return (
     <div className="min-h-screen bg-black px-4 sm:px-4 md:px-6 lg:px-8">
@@ -78,46 +69,6 @@ export default function Home() {
         )}
       </section>
 
-      {/* Categories Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 pb-16">
-        <div className="mb-6 sm:mb-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
-            Categorías 📚
-          </h2>
-          <div className="h-1 w-16 sm:w-20 bg-red-500 rounded"></div>
-        </div>
-
-        {genres.length > 0 ? (
-          <>
-            {/* Preview - First 4 categories */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 mb-6">
-              {genres.slice(0, 4).map((genre) => (
-                <CategoryCard key={genre.id} genre={genre} />
-              ))}
-            </div>
-
-            {/* Ver todas button */}
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-red-500/50"
-            >
-              Ver todas las categorías ({genres.length})
-            </button>
-          </>
-        ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
-            {[...Array(4)].map((_, i) => (
-              <div
-                key={i}
-                className="h-16 sm:h-20 md:h-24 bg-neutral-800 rounded-lg animate-pulse"
-              />
-            ))}
-          </div>
-        )}
-      </section>
-
-      {/* Category Modal */}
-      <CategoryModal genres={genres} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMovieStore } from '../store/movieStore';
 import { movieAPI } from '../services/api';
+import CategoriesDropdown from './CategoriesDropdown';
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -39,24 +40,30 @@ export default function Header() {
             </h1>
           </button>
 
-          {/* Search Form */}
-          <form onSubmit={handleSearch} className="w-full sm:flex-1 sm:max-w-md">
-            <div className="flex items-center bg-neutral-900 rounded-md px-3 sm:px-4  py-2 border border-brand-border focus-within:border-red-500 transition">
-              <input
-                type="text"
-                placeholder="Buscar..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="flex-1 bg-transparent text-white text-sm sm:text-base outline-none placeholder-neutral-500"
-              />
-              <button
-                type="submit"
-                className="ml-2 text-red-500 hover:text-red-400 transition text-lg sm:text-xl"
-              >
-                🔍
-              </button>
-            </div>
-          </form>
+          {/* Search & Categories */}
+          <div className="w-full sm:flex-1 flex items-center gap-3 sm:gap-4">
+            {/* Search Form */}
+            <form onSubmit={handleSearch} className="flex-1 sm:max-w-xs">
+              <div className="flex items-center bg-neutral-900 rounded-md px-3 sm:px-4 py-2 border border-brand-border focus-within:border-red-500 transition">
+                <input
+                  type="text"
+                  placeholder="Buscar..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="flex-1 bg-transparent text-white text-sm sm:text-base outline-none placeholder-neutral-500"
+                />
+                <button
+                  type="submit"
+                  className="ml-2 text-red-500 hover:text-red-400 transition text-lg sm:text-xl"
+                >
+                  🔍
+                </button>
+              </div>
+            </form>
+
+            {/* Categories Dropdown */}
+            <CategoriesDropdown />
+          </div>
         </div>
       </div>
     </header>
