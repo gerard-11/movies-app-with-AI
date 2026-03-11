@@ -87,13 +87,13 @@ export default function Home() {
 
         {genres.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
-            {genres.slice(0, 8).map((genre) => (
+            {genres.map((genre) => (
               <CategoryCard key={genre.id} genre={genre} />
             ))}
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
-            {[...Array(8)].map((_, i) => (
+            {[...Array(12)].map((_, i) => (
               <div
                 key={i}
                 className="h-16 sm:h-20 md:h-24 bg-neutral-800 rounded-lg animate-pulse"
