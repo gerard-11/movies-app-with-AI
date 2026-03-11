@@ -52,17 +52,17 @@ export default function Home() {
         </div>
 
         {trendingMovies.length > 0 ? (
-          <div className="flex overflow-x-auto gap-2 sm:gap-3 md:gap-4 pb-4 scrollbar-hide">
-            {trendingMovies.slice(0, 10).map((movie) => (
-              <MovieCard key={movie.id} movie={movie} size="medium" />
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4 pb-12">
+            {trendingMovies.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} size="small" />
             ))}
           </div>
         ) : (
-          <div className="flex gap-2 sm:gap-3 md:gap-4 overflow-x-auto pb-4">
-            {[...Array(5)].map((_, i) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
+            {[...Array(20)].map((_, i) => (
               <div
                 key={i}
-                className="w-32 h-48 sm:w-40 sm:h-56 md:w-44 md:h-60 lg:w-48 lg:h-64 bg-neutral-800 rounded-lg animate-pulse flex-shrink-0"
+                className="aspect-[2/3] bg-neutral-800 rounded-lg animate-pulse"
               />
             ))}
           </div>

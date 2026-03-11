@@ -33,7 +33,7 @@ export default function CategoriesDropdown() {
       <button
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
-        className="text-neutral-300 hover:text-red-500 transition font-medium text-sm sm:text-base"
+        className="text-neutral-300 cursor-pointer hover:text-red-500 transition font-medium text-sm sm:text-base"
       >
         Categorías
       </button>
@@ -51,7 +51,7 @@ export default function CategoriesDropdown() {
                 <button
                   key={genre.id}
                   onClick={() => handleCategoryClick(genre.id, genre.name)}
-                  className="px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm bg-neutral-800 hover:bg-red-500 text-neutral-300 hover:text-white rounded transition-all duration-200 hover:shadow-lg hover:shadow-red-500/30 w-full text-center"
+                  className="px-3 cursor-pointer sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm bg-neutral-800 hover:bg-red-500 text-neutral-300 hover:text-white rounded transition-all duration-200 hover:shadow-lg hover:shadow-red-500/30 w-full text-center"
                 >
                   {genre.name}
                 </button>
