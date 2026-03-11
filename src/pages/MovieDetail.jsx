@@ -73,9 +73,9 @@ export default function MovieDetail() {
 
   return (
     <div className="min-h-screen bg-black">
-      {/* Backdrop */}
+      {/* Backdrop - Solo en md+ (no en móvil) */}
       {backdropUrl && (
-        <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 overflow-hidden">
+        <div className="hidden md:block relative h-80 lg:h-96 overflow-hidden">
           <img
             src={backdropUrl}
             alt={movieDetail.title}
@@ -86,7 +86,7 @@ export default function MovieDetail() {
       )}
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 -mt-16 sm:-mt-24 md:-mt-32 relative z-10 pb-12">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 md:-mt-32 relative z-10 pb-12">
         <div className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8">
           {/* Poster */}
           {posterUrl && (
@@ -136,7 +136,7 @@ export default function MovieDetail() {
               <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-4">
                 Sinopsis
               </h2>
-              <p className="text-neutral-300 leading-relaxed text-sm sm:text-base md:text-lg">
+              <p className="text-neutral-300 font-light leading-relaxed text-sm sm:text-base md:text-base">
                 {movieDetail.overview}
               </p>
             </div>

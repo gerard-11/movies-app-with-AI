@@ -34,14 +34,14 @@ export default function Header() {
             onClick={() => navigate('/')}
             className="flex-shrink-0 focus:outline-none w-full sm:w-auto"
           >
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-red-500 hover:text-red-400 transition text-center sm:text-left">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-red-500 hover:text-red-400 transition text-center sm:text-left cursor-pointer">
               🎬 CineApp
             </h1>
           </button>
 
           {/* Search Form */}
           <form onSubmit={handleSearch} className="w-full sm:flex-1 sm:max-w-md">
-            <div className="flex items-center bg-neutral-900 rounded-full px-3 sm:px-4 py-2 border border-brand-border focus-within:border-red-500 transition">
+            <div className="flex items-center bg-neutral-900 rounded-md px-3 sm:px-4  py-2 border border-brand-border focus-within:border-red-500 transition">
               <input
                 type="text"
                 placeholder="Buscar..."
