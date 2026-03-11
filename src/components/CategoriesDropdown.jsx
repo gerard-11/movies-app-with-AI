@@ -40,7 +40,7 @@ export default function CategoriesDropdown({ onOpenModal }) {
       {/* Trigger Link */}
       <button
         onClick={handleButtonClick}
-        onMouseEnter={() {
+        onMouseEnter={() => {
           if (window.innerWidth >= 640) setIsOpen(true);
         }}
         onMouseLeave={() => {
