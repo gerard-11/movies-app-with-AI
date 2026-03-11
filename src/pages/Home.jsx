@@ -52,13 +52,13 @@ export default function Home() {
         </div>
 
         {trendingMovies.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4 pb-12">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 pb-12">
             {trendingMovies.map((movie) => (
               <MovieCard key={movie.id} movie={movie} size="small" />
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
             {[...Array(20)].map((_, i) => (
               <div
                 key={i}

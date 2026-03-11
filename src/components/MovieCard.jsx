@@ -15,7 +15,7 @@ export default function MovieCard({ movie, size = 'medium' }) {
   return (
     <div
       onClick={() => navigate(`/movie/${movie.id}`)}
-      className={`${sizeClasses[size]} flex-shrink-0 cursor-pointer group relative overflow-hidden rounded-lg`}
+      className={`${sizeClasses[size]} flex-shrink-0 cursor-pointer group relative overflow-hidden rounded-sm`}
     >
       {/* Image */}
       <img

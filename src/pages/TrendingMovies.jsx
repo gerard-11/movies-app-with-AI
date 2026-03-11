@@ -43,16 +43,16 @@ export default function TrendingMovies() {
 
         {/* Movies Grid */}
         {loading ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4 lg:gap-6">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6">
             {[...Array(12)].map((_, i) => (
               <div
                 key={i}
-                className="aspect-[2/3] bg-neutral-800 rounded-lg animate-pulse"
+                className="aspect-[2/3] bg-neutral-800 rounded-sm animate-pulse"
               />
             ))}
           </div>
         ) : trendingMovies.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4 lg:gap-6 pb-12">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 pb-12">
             {trendingMovies.map((movie) => (
               <div key={movie.id}>
                 <MovieCard movie={movie} size="small" />
