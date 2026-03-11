@@ -72,7 +72,7 @@ export default function MovieDetail() {
     : null;
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black ">
       {/* Backdrop - Solo en md+ (no en móvil) */}
       {backdropUrl && (
         <div className="hidden md:block relative h-80 lg:h-96 overflow-hidden">
@@ -86,7 +86,7 @@ export default function MovieDetail() {
       )}
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 md:-mt-32 relative z-10 pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-4 md:px-6 lg:px-8 md:-mt-32 relative z-10 pb-12">
         <div className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8">
           {/* Poster */}
           {posterUrl && (
@@ -104,7 +104,7 @@ export default function MovieDetail() {
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-2 break-words">
               {movieDetail.title}
             </h1>
-            <p className="text-xs sm:text-sm md:text-base text-neutral-400 mb-3 sm:mb-4">
+            <p className="text-xs sm:text-sm md:text-base text-neutral-400 mb-3 sm:mb-4 px-2">
               {movieDetail.release_date}
             </p>
 

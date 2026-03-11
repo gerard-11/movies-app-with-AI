@@ -50,7 +50,7 @@ export default function Home() {
       </section>
 
       {/* Trending Section */}
-      <section className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12">
         <div className="mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
             Tendencias Ahora 🔥
@@ -77,7 +77,7 @@ export default function Home() {
       </section>
 
       {/* Categories Section */}
-      <section className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 pb-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 pb-16">
         <div className="mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
             Categorías 📚
