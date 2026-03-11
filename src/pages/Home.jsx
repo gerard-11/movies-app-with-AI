@@ -1,10 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useMovieStore } from '../store/movieStore';
 import { movieAPI } from '../services/api';
 import MovieCard from '../components/MovieCard';
 import CategoryCard from '../components/CategoryCard';
+import CategoryModal from '../components/CategoryModal';
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const {
     trendingMovies,
     genres,
@@ -86,14 +88,25 @@ export default function Home() {
         </div>
 
         {genres.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
-            {genres.map((genre) => (
-              <CategoryCard key={genre.id} genre={genre} />
-            ))}
-          </div>
+          <>
+            {/* Preview - First 4 categories */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 mb-6">
+              {genres.slice(0, 4).map((genre) => (
+                <CategoryCard key={genre.id} genre={genre} />
+              ))}
+            </div>
+
+            {/* Ver todas button */}
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-red-500/50"
+            >
+              Ver todas las categorías ({genres.length})
+            </button>
+          </>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
-            {[...Array(12)].map((_, i) => (
+            {[...Array(4)].map((_, i) => (
               <div
                 key={i}
                 className="h-16 sm:h-20 md:h-24 bg-neutral-800 rounded-lg animate-pulse"
@@ -102,6 +115,9 @@ export default function Home() {
           </div>
         )}
       </section>
+
+      {/* Category Modal */}
+      <CategoryModal genres={genres} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }
