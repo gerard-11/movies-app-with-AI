@@ -43,15 +43,15 @@ export default function CategoriesDropdown() {
         <div
           onMouseEnter={() => setIsOpen(true)}
           onMouseLeave={() => setIsOpen(false)}
-          className="absolute top-full left-0 mt-2 bg-neutral-900 border border-neutral-800 rounded-lg shadow-2xl p-3 sm:p-4 min-w-max max-w-xs sm:max-w-sm z-50"
+          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-neutral-900 border border-neutral-800 rounded-lg shadow-2xl p-4 sm:p-6 w-screen sm:w-[500px] md:w-[600px] lg:w-[700px] max-h-96 overflow-y-auto z-50"
         >
           {genres.length > 0 ? (
-            <div className="flex flex-wrap gap-2">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3">
               {genres.map((genre) => (
                 <button
                   key={genre.id}
                   onClick={() => handleCategoryClick(genre.id, genre.name)}
-                  className="px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm bg-neutral-800 hover:bg-red-500 text-neutral-300 hover:text-white rounded transition-all duration-200 hover:shadow-lg hover:shadow-red-500/30"
+                  className="px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm bg-neutral-800 hover:bg-red-500 text-neutral-300 hover:text-white rounded transition-all duration-200 hover:shadow-lg hover:shadow-red-500/30 w-full text-center"
                 >
                   {genre.name}
                 </button>
