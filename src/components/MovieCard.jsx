@@ -7,9 +7,9 @@ export default function MovieCard({ movie, size = 'medium' }) {
     : 'https://via.placeholder.com/300x450?text=No+Image';
 
   const sizeClasses = {
-    small: 'w-32 h-48',
-    medium: 'w-40 h-56',
-    large: 'w-48 h-64',
+    small: 'w-28 h-40 sm:w-32 sm:h-48 md:w-36 md:h-52',
+    medium: 'w-32 h-48 sm:w-40 sm:h-56 md:w-44 md:h-60 lg:w-48 lg:h-64',
+    large: 'w-40 h-56 sm:w-48 sm:h-64 md:w-56 md:h-72 lg:w-64 lg:h-80',
   };
 
   return (

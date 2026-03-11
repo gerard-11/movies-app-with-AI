@@ -4,6 +4,7 @@ export const useMovieStore = create((set) => ({
   // State
   movies: [],
   trendingMovies: [],
+  
   searchResults: [],
   movieDetail: null,
   genres: [],

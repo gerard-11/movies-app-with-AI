@@ -75,7 +75,7 @@ export default function MovieDetail() {
     <div className="min-h-screen bg-black">
       {/* Backdrop */}
       {backdropUrl && (
-        <div className="relative h-96 overflow-hidden">
+        <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 overflow-hidden">
           <img
             src={backdropUrl}
             alt={movieDetail.title}
@@ -86,11 +86,11 @@ export default function MovieDetail() {
       )}
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 relative z-10 pb-12">
-        <div className="flex flex-col md:flex-row gap-8">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 -mt-16 sm:-mt-24 md:-mt-32 relative z-10 pb-12">
+        <div className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8">
           {/* Poster */}
           {posterUrl && (
-            <div className="flex-shrink-0 w-full md:w-64">
+            <div className="flex-shrink-0 w-full sm:w-48 md:w-56 lg:w-64 mx-auto sm:mx-0">
               <img
                 src={posterUrl}
                 alt={movieDetail.title}
@@ -101,27 +101,29 @@ export default function MovieDetail() {
 
           {/* Info */}
           <div className="flex-1">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-2 break-words">
               {movieDetail.title}
             </h1>
-            <p className="text-neutral-400 mb-4">{movieDetail.release_date}</p>
+            <p className="text-xs sm:text-sm md:text-base text-neutral-400 mb-3 sm:mb-4">
+              {movieDetail.release_date}
+            </p>
 
             {/* Rating */}
-            <div className="flex items-center gap-2 mb-6">
-              <span className="text-amber-500 text-2xl">⭐</span>
-              <span className="text-2xl font-bold text-white">
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <span className="text-amber-500 text-lg sm:text-xl md:text-2xl">⭐</span>
+              <span className="text-lg sm:text-xl md:text-2xl font-bold text-white">
                 {movieDetail.vote_average?.toFixed(1)}
               </span>
-              <span className="text-neutral-400">/ 10</span>
+              <span className="text-xs sm:text-base text-neutral-400">/ 10</span>
             </div>
 
             {/* Genres */}
             {movieDetail.genres && movieDetail.genres.length > 0 && (
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
                 {movieDetail.genres.map((genre) => (
                   <span
                     key={genre.id}
-                    className="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm"
+                    className="bg-red-500/20 text-red-400 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm"
                   >
                     {genre.name}
                   </span>
@@ -130,27 +132,29 @@ export default function MovieDetail() {
             )}
 
             {/* Overview */}
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold text-white mb-4">Sinopsis</h2>
-              <p className="text-neutral-300 leading-relaxed text-lg">
+            <div className="mb-6 sm:mb-8">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-4">
+                Sinopsis
+              </h2>
+              <p className="text-neutral-300 leading-relaxed text-sm sm:text-base md:text-lg">
                 {movieDetail.overview}
               </p>
             </div>
 
             {/* Runtime & Budget */}
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
               {movieDetail.runtime && (
                 <div>
-                  <p className="text-neutral-400 text-sm">Duración</p>
-                  <p className="text-white font-semibold">
-                    {movieDetail.runtime} minutos
+                  <p className="text-neutral-400 text-xs sm:text-sm">Duración</p>
+                  <p className="text-white text-sm sm:text-base font-semibold">
+                    {movieDetail.runtime} min
                   </p>
                 </div>
               )}
               {movieDetail.budget > 0 && (
                 <div>
-                  <p className="text-neutral-400 text-sm">Presupuesto</p>
-                  <p className="text-white font-semibold">
+                  <p className="text-neutral-400 text-xs sm:text-sm">Presupuesto</p>
+                  <p className="text-white text-sm sm:text-base font-semibold">
                     ${(movieDetail.budget / 1000000).toFixed(0)}M
                   </p>
                 </div>
@@ -160,7 +164,7 @@ export default function MovieDetail() {
             {/* Back Button */}
             <button
               onClick={() => navigate(-1)}
-              className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg transition font-semibold"
+              className="w-full sm:w-auto bg-red-500 hover:bg-red-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition font-semibold text-sm sm:text-base"
             >
               ← Volver
             </button>
@@ -169,15 +173,15 @@ export default function MovieDetail() {
 
         {/* Related Movies */}
         {relatedMovies.length > 0 && (
-          <section className="mt-16">
-            <div className="mb-8">
-              <h2 className="text-3xl font-bold text-white mb-2">
+          <section className="mt-12 sm:mt-16">
+            <div className="mb-6 sm:mb-8">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">
                 Películas Similares
               </h2>
-              <div className="h-1 w-20 bg-red-500 rounded"></div>
+              <div className="h-1 w-16 sm:w-20 bg-red-500 rounded"></div>
             </div>
 
-            <div className="flex overflow-x-auto gap-4 pb-4">
+            <div className="flex overflow-x-auto gap-2 sm:gap-3 md:gap-4 pb-4">
               {relatedMovies.slice(0, 10).map((movie) => (
                 <MovieCard key={movie.id} movie={movie} size="medium" />
               ))}
