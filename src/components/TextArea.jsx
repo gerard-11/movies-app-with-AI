@@ -6,19 +6,19 @@ export function TextArea(){
     const [bold, setBold] = useState(false);
     const [underline, setUnderline] = useState(false);
     const [comments, setComments] = useState([]);
-    const [addComments, setAddCommetns] = useState(false);
+    const [addComments, setAddComments] = useState(false);
     const [isOpenComments, setIsOpenComments] = useState(false);
     const[editingID, setEditingId] = useState(null);
-
+    
     const closeEditing = () => {
         setEditingId(null);
         setIsOpenComments(false);
-        setAddCommetns(false);
+        setAddComments(false);
         setText('')
     }
 
     const editComment = (id) => {
-        setAddCommetns(true)
+        setAddComments(true)
         setIsOpenComments(false)
         const commentToEdit=comments.find(comment => comment.id === id);
         setText(commentToEdit.text);
@@ -35,7 +35,7 @@ export function TextArea(){
         )
         setEditingId(null)
         setText('')
-        setAddCommetns(false)
+        setAddComments(false)
         setIsOpenComments(true)
 }
 
@@ -51,12 +51,12 @@ const addComment=()=>{
     setUnderline(false)
     setSize(16)
     setIsOpenComments(true)
-    setAddCommetns(false)
+    setAddComments(false)
     setText('');
     setEditingId(null)
 }
 
-const handleComents=()=>{
+const handleComments=()=>{
         if(editingID){
             saveComment()
         }else{
@@ -129,7 +129,7 @@ const handleComents=()=>{
                     </button>
                     <button
                         className="w-20 mx-5 my-2 bg-fuchsia-100 rounded-lg text-black cursor-pointer"
-                        onClick={handleComents}>
+                        onClick={handleComments}>
                         {editingID ? 'editar' : 'guardar'}
                     </button>
                     <button    className="w-10 mx-5 my-2 bg-fuchsia-100 rounded-lg text-black "
@@ -159,7 +159,7 @@ const handleComents=()=>{
         <div>
             <button
                 className="bg-amber-300 text-black rounded-sm cursor-pointer"
-                onClick={()=> setAddCommetns(true)}>add a comment </button>
+                onClick={()=> setAddComments(true)}>add a comment </button>
             {comments?.length > 0 &&
                 <button
                     className="bg-amber-300 text-black rounded-sm cursor-pointer"
