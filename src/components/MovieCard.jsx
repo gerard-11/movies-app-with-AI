@@ -12,16 +12,17 @@ export default function MovieCard({ movie, size = 'medium' }) {
     large: 'w-40 h-56 sm:w-48 sm:h-64 md:w-56 md:h-72 lg:w-64 lg:h-80',
   };
 
+  const className = `${sizeClasses[size]} flex-shrink-0 cursor-pointer group relative overflow-hidden rounded-sm`;
   return (
     <div
       onClick={() => navigate(`/movie/${movie.id}`)}
-      className={`${sizeClasses[size]} flex-shrink-0 cursor-pointer group relative overflow-hidden rounded-sm`}
+      className={className}
     >
       {/* Image */}
       <img
         src={imageUrl}
         alt={movie.title || movie.name}
-        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+        className="w-full h-full object-cover rounded-md group-hover:scale-110 transition-transform duration-300"
       />
 
       {/* Overlay */}

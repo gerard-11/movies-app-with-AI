@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import {TextArea} from "../components/TextArea.jsx";
 import { useMovieStore } from '../store/movieStore';
 import { movieAPI } from '../services/api';
 import MovieCard from '../components/MovieCard';
@@ -28,7 +29,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black px-4 sm:px-4 md:px-6 lg:px-8">
-      {/* Hero Section */}
       <section className="relative h-64 sm:h-80 md:h-96 bg-gradient-brand overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center px-4">
           <div className="text-center text-white">
@@ -42,10 +42,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trending Section */}
+<TextArea/>
+
       <section className="max-w-7xl mx-auto px-4 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="mb-6 sm:mb-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
+        <div className=" sm:mb-8 mb-8">
+          <h2 className="text-2xl  sm:text-3xl md:text-4xl font-bold text-white mb-2">
             Tendencias Ahora 🔥
           </h2>
           <div className="h-1 w-16 sm:w-20 bg-red-500 rounded"></div>

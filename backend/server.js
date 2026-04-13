@@ -1,11 +1,11 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const axios = require('axios');
+
+import express from "express"
+import cors from "cors"
+import axios from "axios"
 
 const app = express();
-const PORT = process.env.PORT || 3001;
-const TMDB_API_KEY = process.env.TMDB_API_KEY;
+const PORT =  3001;
+const TMDB_API_KEY = "153587a950c5f38f93a625649efda506"
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3/';
 
 // Middleware
@@ -15,7 +15,6 @@ app.use(express.json());
 // Validate API Key on startup
 if (!TMDB_API_KEY) {
   console.error('❌ TMDB_API_KEY not found in .env');
-  process.exit(1);
 }
 
 console.log('✅ TMDB_API_KEY loaded');
@@ -112,7 +111,7 @@ app.get('/api/movie/:id/similar', async (req, res) => {
 });
 
 // Health check
-app.get('/health', (req, res) => {
+app.get('/', (req, res) => {
   res.json({ status: 'ok', message: 'BFF is running' });
 });
 
